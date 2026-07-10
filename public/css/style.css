@@ -1,490 +1,222 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 :root {
-    --primary-color: #e91e63;
-    --secondary-color: #9c27b0;
-    --accent-color: #ff5722;
-    --dark-color: #333;
-    --light-color: #f5f5f5;
-    --border-color: #ddd;
-    --success-color: #4caf50;
-    --warning-color: #ff9800;
-    --danger-color: #f44336;
+    --primary-color: #ff006e;
+    --secondary-color: #8338ec;
+    --success-color: #3a86ff;
+    --danger-color: #fb5607;
+    --dark-color: #1a1a1a;
+    --light-color: #f8f9fa;
 }
 
-html, body {
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--light-color);
     color: var(--dark-color);
 }
 
-/* Utilities */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #c2185b;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: var(--secondary-color);
-    color: white;
-}
-
-.btn-secondary:hover {
-    background-color: #7b1fa2;
-}
-
-.btn-block {
-    width: 100%;
-}
-
-/* Navbar */
-.navbar {
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-}
-
-.navbar-brand {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-.navbar-brand a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.navbar-menu {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    align-items: center;
-}
-
-.navbar-menu a {
-    text-decoration: none;
-    color: var(--dark-color);
-    transition: color 0.3s;
-}
-
-.navbar-menu a:hover {
-    color: var(--primary-color);
-}
-
-.btn-login {
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    background-color: transparent;
-}
-
-.btn-signup {
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 5px;
-}
-
 /* Hero Section */
-.hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 40px;
-    padding: 80px 0;
-    background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1));
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero-content h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: var(--primary-color);
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
 }
 
-.hero-content p {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 30px;
-    line-height: 1.6;
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(30px); }
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-}
-
-.hero-buttons .btn {
-    padding: 15px 30px;
-    font-size: 16px;
-}
-
-.hero-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Features Section */
-.features {
-    padding: 80px 0;
-    background-color: white;
-}
-
-.features h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 50px;
-    color: var(--primary-color);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
+/* Feature Cards */
 .feature-card {
-    background-color: var(--light-color);
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
+    background: white;
+    border-radius: 15px;
     transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    height: 100%;
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
 }
 
-.feature-card i {
-    font-size: 40px;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.feature-card h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
+.feature-card h5 {
     color: var(--dark-color);
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .feature-card p {
-    color: #666;
-    line-height: 1.6;
+    color: #6c757d;
+    font-size: 0.95rem;
 }
 
-/* Subscriptions Section */
-.subscriptions {
-    padding: 80px 0;
+/* Design Cards */
+.design-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.subscriptions h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 50px;
-    color: var(--primary-color);
+.design-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-.subscriptions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.design-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 
+.design-card-body {
+    padding: 20px;
+}
+
+.design-card-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+/* Subscription Cards */
 .subscription-card {
-    background-color: white;
+    background: white;
+    border-radius: 15px;
     padding: 30px;
-    border-radius: 10px;
-    border: 2px solid var(--border-color);
     text-align: center;
     transition: all 0.3s ease;
+    border: 2px solid #e9ecef;
+    position: relative;
 }
 
 .subscription-card:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+    box-shadow: 0 15px 40px rgba(255, 0, 110, 0.2);
+    transform: scale(1.05);
 }
 
-.subscription-card h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
-.subscription-card .price {
-    font-size: 32px;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin: 20px 0;
-}
-
-.subscription-card ul {
-    list-style: none;
-    margin: 20px 0;
-    text-align: left;
-}
-
-.subscription-card li {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border-color);
-    color: #666;
-}
-
-.subscription-card li:before {
-    content: "✓ ";
-    color: var(--success-color);
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.subscription-card .btn {
-    margin-top: 20px;
-    width: 100%;
-}
-
-/* Contact Section */
-.contact {
-    padding: 80px 0;
-    background-color: white;
-}
-
-.contact h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 50px;
-    color: var(--primary-color);
-}
-
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    padding: 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: 14px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
+.subscription-card.featured {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+    transform: scale(1.05);
 }
 
-.contact-info h3 {
-    margin-bottom: 30px;
-    color: var(--primary-color);
-}
-
-.contact-info p {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.contact-info i {
-    color: var(--primary-color);
-    font-size: 20px;
-}
-
-.contact-info a {
+.subscription-card h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
     color: var(--dark-color);
-    text-decoration: none;
 }
 
-.contact-info a:hover {
+.subscription-price {
+    font-size: 2.5rem;
+    font-weight: 700;
     color: var(--primary-color);
+    margin-bottom: 20px;
 }
 
-/* Footer */
-.footer {
-    background-color: var(--dark-color);
-    color: white;
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 80px;
+.subscription-features {
+    text-align: right;
+    margin: 20px 0;
 }
 
-/* Auth Pages */
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-}
-
-.auth-card {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    width: 100%;
-    max-width: 400px;
-}
-
-.auth-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.auth-header h1 {
-    color: var(--primary-color);
+.subscription-features li {
+    color: #6c757d;
     margin-bottom: 10px;
 }
 
-.auth-header p {
-    color: #666;
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.btn-primary:hover {
+    box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+    transform: translateY(-2px);
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
+/* Navbar */
+.navbar-brand {
+    font-size: 1.5rem;
 }
 
-.form-group label {
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: var(--dark-color);
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: 14px;
+/* Contact Form */
+.contact-form .form-control {
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
+.contact-form .form-control:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 110, 0.25);
 }
 
-.auth-divider {
-    text-align: center;
-    color: #999;
-    margin: 20px 0;
-    position: relative;
+/* Sections */
+section {
+    padding: 80px 0;
 }
 
-.auth-divider:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: var(--border-color);
-    z-index: -1;
+section h2 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
-.auth-divider {
-    background-color: white;
-    padding: 0 10px;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+/* Footer */
+footer {
+    background-color: var(--dark-color) !important;
+    border-top: 3px solid var(--primary-color);
 }
 
-.auth-footer {
-    text-align: center;
-    margin-top: 20px;
-    color: #666;
-}
-
-.auth-footer a {
-    color: var(--primary-color);
+footer a {
     text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color) !important;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .navbar-menu {
-        flex-direction: column;
-        gap: 10px;
+    .hero-section {
+        min-height: 400px;
     }
 
-    .hero {
-        grid-template-columns: 1fr;
-        padding: 40px 0;
+    .hero-section h1 {
+        font-size: 2rem;
     }
 
-    .hero-content h1 {
-        font-size: 32px;
+    section h2 {
+        font-size: 1.8rem;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
+    .subscription-card {
+        transform: scale(1) !important;
     }
 }

@@ -3,42 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل دخول - موديلة</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>تسجيل الدخول - موديلة</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/css/auth.css" rel="stylesheet">
 </head>
 <body>
-    <div class="auth-container">
-        <div class="auth-card">
-            <div class="auth-header">
-                <h1><i class="fas fa-dress"></i> موديلة</h1>
-                <p>تسجيل الدخول</p>
+    <div class="container-fluid min-vh-100 d-flex align-items-center bg-gradient">
+        <div class="row w-100">
+            <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center">
+                <div class="text-white">
+                    <h1 class="display-4 fw-bold mb-4">موديلة</h1>
+                    <p class="lead mb-3">منصة عرض الملابس بتقنية الذكاء الاصطناعي</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i>تجربة افتراضية واقعية</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i>تحميل صور بجودة عالية</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i>توليد صور احترافية</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i>مشاركة سهلة على الشبكات</li>
+                    </ul>
+                </div>
             </div>
-
-            <form class="auth-form" id="loginForm">
-                <div class="form-group">
-                    <label>البريد الإلكتروني</label>
-                    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+            <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                <div class="auth-card p-5">
+                    <h2 class="text-center mb-4">تسجيل الدخول</h2>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label">البريد الإلكتروني</label>
+                            <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">كلمة المرور</label>
+                            <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">دخول</button>
+                    </form>
+                    <hr>
+                    <p class="text-center">
+                        ليس لديك حساب؟ 
+                        <a href="/register.html" class="text-primary fw-bold">إنشاء حساب جديد</a>
+                    </p>
                 </div>
-
-                <div class="form-group">
-                    <label>كلمة المرور</label>
-                    <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-block">دخول</button>
-
-                <div class="auth-divider">أو</div>
-
-                <a href="register.html" class="btn btn-secondary btn-block">إنشاء حساب جديد</a>
-            </form>
-
-            <div class="auth-footer">
-                <p>هل نسيت كلمة المرور؟ <a href="#">استعد هنا</a></p>
             </div>
         </div>
     </div>
 
-    <script src="js/auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/auth.js"></script>
 </body>
 </html>

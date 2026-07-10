@@ -4,60 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تسجيل جديد - موديلة</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/css/auth.css" rel="stylesheet">
 </head>
 <body>
-    <div class="auth-container">
-        <div class="auth-card">
-            <div class="auth-header">
-                <h1><i class="fas fa-dress"></i> موديلة</h1>
-                <p>إنشاء حساب جديد</p>
+    <div class="container-fluid min-vh-100 d-flex align-items-center bg-gradient">
+        <div class="row w-100">
+            <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center">
+                <div class="text-white">
+                    <h1 class="display-4 fw-bold mb-4">موديلة</h1>
+                    <p class="lead mb-3">منصة عرض الملابس بتقنية الذكاء الاصطناعي</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i>تجربة افتراضية واقعية</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i>تحميل صور بجودة عالية</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i>توليد صور احترافية</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i>مشاركة سهلة على الشبكات</li>
+                    </ul>
+                </div>
             </div>
-
-            <form class="auth-form" id="registerForm">
-                <div class="form-group">
-                    <label>اسم المستخدم</label>
-                    <input type="text" id="username" placeholder="اختر اسم مستخدم" required>
+            <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                <div class="auth-card p-5">
+                    <h2 class="text-center mb-4">إنشاء حساب جديد</h2>
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label class="form-label">اسم المستخدم</label>
+                            <input type="text" class="form-control" id="username" placeholder="اسمك" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">البريد الإلكتروني</label>
+                            <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">رقم الهاتف</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="07xxxxxxxxx" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">نوع الحساب</label>
+                            <select class="form-select" id="role" required>
+                                <option value="user">مستخدم عادي</option>
+                                <option value="store">صاحب متجر</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">كلمة المرور</label>
+                            <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">تأكيد كلمة المرور</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">إنشاء الحساب</button>
+                    </form>
+                    <hr>
+                    <p class="text-center">
+                        لديك حساب بالفعل؟ 
+                        <a href="/login.html" class="text-primary fw-bold">تسجيل الدخول</a>
+                    </p>
                 </div>
-
-                <div class="form-group">
-                    <label>البريد الإلكتروني</label>
-                    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
-                </div>
-
-                <div class="form-group">
-                    <label>رقم الهاتف</label>
-                    <input type="tel" id="phone" placeholder="أدخل رقم هاتفك" required>
-                </div>
-
-                <div class="form-group">
-                    <label>نوع الحساب</label>
-                    <select id="role" required>
-                        <option value="user">مستخدم عادي</option>
-                        <option value="store">صاحب متجر</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>كلمة المرور</label>
-                    <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
-                </div>
-
-                <div class="form-group">
-                    <label>تأكيد كلمة المرور</label>
-                    <input type="password" id="confirmPassword" placeholder="أعد إدخال كلمة المرور" required>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-block">إنشاء حساب</button>
-
-                <div class="auth-divider">أو</div>
-
-                <a href="login.html" class="btn btn-secondary btn-block">دخول إلى حسابك</a>
-            </form>
+            </div>
         </div>
     </div>
 
-    <script src="js/auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/auth.js"></script>
 </body>
 </html>

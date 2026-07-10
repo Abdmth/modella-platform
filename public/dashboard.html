@@ -4,265 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة التحكم - موديلة</title>
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/css/dashboard.css" rel="stylesheet">
 </head>
 <body>
-    <div class="dashboard-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h2><i class="fas fa-dress"></i> موديلة</h2>
-            </div>
-            <nav class="sidebar-nav">
-                <a href="#dashboard" class="nav-link active" data-section="dashboard">
-                    <i class="fas fa-home"></i> لوحة التحكم
-                </a>
-                <a href="#profile" class="nav-link" data-section="profile">
-                    <i class="fas fa-user"></i> الملف الشخصي
-                </a>
-                <a href="#models" class="nav-link" data-section="models">
-                    <i class="fas fa-people-group"></i> العارضات
-                </a>
-                <a href="#clothes" class="nav-link" data-section="clothes">
-                    <i class="fas fa-shirt"></i> الملابس
-                </a>
-                <a href="#wallet" class="nav-link" data-section="wallet">
-                    <i class="fas fa-wallet"></i> المحفظة
-                </a>
-                <a href="#subscriptions" class="nav-link" data-section="subscriptions">
-                    <i class="fas fa-credit-card"></i> الاشتراكات
-                </a>
-                <a href="#settings" class="nav-link" data-section="settings">
-                    <i class="fas fa-cog"></i> الإعدادات
-                </a>
-                <a href="#" class="nav-link" onclick="logout()">
-                    <i class="fas fa-sign-out-alt"></i> تسجيل خروج
-                </a>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+                <div class="position-sticky">
+                    <h5 class="text-white p-3"><i class="fas fa-star me-2"></i>موديلة</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#dashboard"><i class="fas fa-chart-line me-2"></i>لوحة التحكم</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#profile"><i class="fas fa-user me-2"></i>الملف الشخصي</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#wallet"><i class="fas fa-wallet me-2"></i>المحفظة</a>
+                        </li>
+                        <li class="nav-item store-only" style="display:none;">
+                            <a class="nav-link" href="#models"><i class="fas fa-person me-2"></i>الموديلات</a>
+                        </li>
+                        <li class="nav-item store-only" style="display:none;">
+                            <a class="nav-link" href="#clothes"><i class="fas fa-shirt me-2"></i>الملابس</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#subscriptions"><i class="fas fa-crown me-2"></i>الاشتراكات</a>
+                        </li>
+                        <li class="nav-item admin-only" style="display:none;">
+                            <a class="nav-link" href="#admin"><i class="fas fa-cogs me-2"></i>لوحة الإدارة</a>
+                        </li>
+                        <hr class="bg-secondary">
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" href="#" onclick="logout()"><i class="fas fa-sign-out-alt me-2"></i>تسجيل الخروج</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
-        </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Header -->
-            <header class="dashboard-header">
-                <div class="header-title">
-                    <h1 id="pageTitle">لوحة التحكم</h1>
-                </div>
-                <div class="header-user">
-                    <span id="userName">مستخدم</span>
-                    <img id="userAvatar" src="images/avatar.jpg" alt="User Avatar">
-                </div>
-            </header>
-
-            <!-- Dashboard Section -->
-            <section id="dashboard" class="section active">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <h3>رصيد المحفظة</h3>
-                        <p class="stat-value" id="walletBalance">0 ريال</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>عدد العارضات</h3>
-                        <p class="stat-value" id="modelsCount">0</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>عدد الملابس</h3>
-                        <p class="stat-value" id="clothesCount">0</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>الاشتراك الحالي</h3>
-                        <p class="stat-value" id="currentPlan">بدون اشتراك</p>
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Header -->
+                <div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+                    <h1 class="h2">لوحة التحكم</h1>
+                    <div>
+                        <span id="userName" class="me-3"></span>
+                        <button class="btn btn-sm btn-outline-danger" onclick="logout()">خروج</button>
                     </div>
                 </div>
-            </section>
 
-            <!-- Profile Section -->
-            <section id="profile" class="section">
-                <div class="card">
-                    <h2>الملف الشخصي</h2>
-                    <form id="profileForm" class="profile-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>اسم المستخدم</label>
-                                <input type="text" id="profileUsername" required>
+                <!-- Dashboard Content -->
+                <div id="content-area" class="mt-5">
+                    <!-- Dashboard Overview -->
+                    <div id="dashboard" class="section">
+                        <h3>نظرة عامة</h3>
+                        <div class="row g-4 mt-4">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card stat-card">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-muted">الرصيد</h6>
+                                        <h3 id="walletBalance">0 د.ع</h3>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>البريد الإلكتروني</label>
-                                <input type="email" id="profileEmail" disabled>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card stat-card">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-muted">الخطة</h6>
+                                        <h3 id="subscriptionPlan">مجاني</h3>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>رقم الهاتف</label>
-                                <input type="tel" id="profilePhone" required>
+                            <div class="col-md-6 col-lg-3 store-only" style="display:none;">
+                                <div class="card stat-card">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-muted">الموديلات</h6>
+                                        <h3 id="modelsCount">0</h3>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>اسم المتجر</label>
-                                <input type="text" id="storeName" placeholder="اختياري">
+                            <div class="col-md-6 col-lg-3 store-only" style="display:none;">
+                                <div class="card stat-card">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-muted">الملابس</h6>
+                                        <h3 id="clothesCount">0</h3>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>وصف المتجر</label>
-                            <textarea id="storeDescription" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
-                    </form>
-                </div>
-            </section>
+                    </div>
 
-            <!-- Models Section -->
-            <section id="models" class="section">
-                <div class="card">
-                    <div class="section-header">
-                        <h2>العارضات</h2>
-                        <button class="btn btn-primary" onclick="openAddModelModal()">
-                            <i class="fas fa-plus"></i> إضافة عارضة
-                        </button>
-                    </div>
-                    <div id="modelsList" class="items-grid">
-                        <!-- Loaded dynamically -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Clothes Section -->
-            <section id="clothes" class="section">
-                <div class="card">
-                    <div class="section-header">
-                        <h2>الملابس</h2>
-                        <button class="btn btn-primary" onclick="openAddClothingModal()">
-                            <i class="fas fa-plus"></i> إضافة ملبس
-                        </button>
-                    </div>
-                    <div id="clothesList" class="items-grid">
-                        <!-- Loaded dynamically -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Wallet Section -->
-            <section id="wallet" class="section">
-                <div class="card">
-                    <h2>المحفظة</h2>
-                    <div class="wallet-info">
-                        <div class="balance-card">
-                            <h3>الرصيد الحالي</h3>
-                            <p class="balance-amount" id="walletBalanceDetail">0 ريال</p>
+                    <!-- Profile Section -->
+                    <div id="profile" class="section" style="display:none;">
+                        <h3>الملف الشخصي</h3>
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <form id="profileForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">اسم المستخدم</label>
+                                        <input type="text" class="form-control" id="profileUsername" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">البريد الإلكتروني</label>
+                                        <input type="email" class="form-control" id="profileEmail" disabled>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">رقم الهاتف</label>
+                                        <input type="tel" class="form-control" id="profilePhone" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <h3>آخر المعاملات</h3>
-                    <div id="transactionsList" class="transactions-list">
-                        <!-- Loaded dynamically -->
-                    </div>
-                </div>
-            </section>
 
-            <!-- Subscriptions Section -->
-            <section id="subscriptions" class="section">
-                <div class="card">
-                    <h2>خطط الاشتراك</h2>
-                    <div id="subscriptionsListDashboard" class="subscriptions-grid">
-                        <!-- Loaded dynamically -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Settings Section -->
-            <section id="settings" class="section">
-                <div class="card">
-                    <h2>الإعدادات</h2>
-                    <div class="settings-group">
-                        <h3>تغيير كلمة المرور</h3>
-                        <form id="passwordForm" class="settings-form">
-                            <div class="form-group">
-                                <label>كلمة المرور الحالية</label>
-                                <input type="password" id="currentPassword" required>
+                    <!-- Wallet Section -->
+                    <div id="wallet" class="section" style="display:none;">
+                        <h3>المحفظة</h3>
+                        <div class="row mt-4">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">الرصيد الحالي</h5>
+                                        <h2 class="text-primary mb-4" id="currentBalance">0 د.ع</h2>
+                                        <h6>العمليات الأخيرة</h6>
+                                        <div id="transactionsList" style="max-height: 400px; overflow-y: auto;">
+                                            <!-- Transactions loaded here -->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>كلمة المرور الجديدة</label>
-                                <input type="password" id="newPassword" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">تحديث</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- Modal for Add Model -->
-    <div id="addModelModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('addModelModal')">&times;</span>
-            <h2>إضافة عارضة جديدة</h2>
-            <form id="addModelForm" class="modal-form">
-                <div class="form-group">
-                    <label>اسم العارضة</label>
-                    <input type="text" id="modelName" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>الطول</label>
-                        <input type="text" id="modelHeight" placeholder="مثال: 170 سم">
-                    </div>
-                    <div class="form-group">
-                        <label>الصدر</label>
-                        <input type="text" id="modelChest" placeholder="مثال: 90 سم">
-                    </div>
-                    <div class="form-group">
-                        <label>الخصر</label>
-                        <input type="text" id="modelWaist" placeholder="مثال: 70 سم">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>صور العارضة</label>
-                    <input type="file" id="modelImages" multiple accept="image/*">
-                </div>
-                <button type="submit" class="btn btn-primary">إضافة</button>
-            </form>
+            </main>
         </div>
     </div>
 
-    <!-- Modal for Add Clothing -->
-    <div id="addClothingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('addClothingModal')">&times;</span>
-            <h2>إضافة ملبس جديد</h2>
-            <form id="addClothingForm" class="modal-form">
-                <div class="form-group">
-                    <label>اسم الملبس</label>
-                    <input type="text" id="clothingName" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>الفئة</label>
-                        <select id="clothingCategory" required>
-                            <option value="">اختر فئة</option>
-                            <option value="dress">فستان</option>
-                            <option value="shirt">قميص</option>
-                            <option value="pants">بنطال</option>
-                            <option value="jacket">جاكيت</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>السعر</label>
-                        <input type="number" id="clothingPrice" placeholder="السعر بالريال">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>صورة الملبس</label>
-                    <input type="file" id="clothingImage" accept="image/*" required>
-                </div>
-                <div class="form-group">
-                    <label>الوصف</label>
-                    <textarea id="clothingDescription" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">إضافة</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="js/dashboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/dashboard.js"></script>
 </body>
 </html>
