@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موديلة - منصة عرض الملابس الذكية</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="/">
+                    <i class="fas fa-dress"></i>
+                    <span>موديلة</span>
+                </a>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#clothes">الملابس</a></li>
+                <li><a href="#subscriptions">الخطط</a></li>
+                <li><a href="#contact">التواصل</a></li>
+                <li><a href="login.html" class="btn-login">دخول</a></li>
+                <li><a href="register.html" class="btn-signup">تسجيل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>منصة موديلة</h1>
+            <p>عرض ملابسك بتقنية الذكاء الاصطناعي والتجربة الافتراضية الواقعية</p>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn btn-primary">ابدأ الآن</a>
+                <a href="#demo" class="btn btn-secondary">شاهد التطبيق</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/hero.jpg" alt="Modella Platform">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>مميزاتنا</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>تقنية AI متقدمة</h3>
+                    <p>تجربة افتراضية واقعية للملابس على العارضات</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-image"></i>
+                    <h3>توليد صور احترافية</h3>
+                    <p>صور مثالية للشبكات الاجتماعية والمتاجر</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h3>إدارة متجرك</h3>
+                    <p>أدوات متقدمة لإدارة الملابس والعارضات</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-wallet"></i>
+                    <h3>محفظة آمنة</h3>
+                    <p>نظام دفع آمن وتتبع شامل للمعاملات</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>إحصائيات مفصلة</h3>
+                    <p>تابع أداء متجرك مع لوحة تحكم متقدمة</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>دعم فني 24/7</h3>
+                    <p>فريق دعم متاح دائماً لمساعدتك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscriptions Section -->
+    <section class="subscriptions" id="subscriptions">
+        <div class="container">
+            <h2>خطط الاشتراك</h2>
+            <div class="subscriptions-grid" id="subscriptionsContainer">
+                <!-- Loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>تواصل معنا</h2>
+            <div class="contact-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="اسمك" required>
+                    <input type="email" placeholder="بريدك الإلكتروني" required>
+                    <input type="tel" placeholder="رقم الهاتف" required>
+                    <input type="text" placeholder="الموضوع" required>
+                    <textarea placeholder="رسالتك" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+                </form>
+                <div class="contact-info">
+                    <h3>معلومات التواصل</h3>
+                    <p>
+                        <i class="fas fa-whatsapp"></i>
+                        <a href="https://wa.me/07711775766" target="_blank">07711775766</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@modella.com">info@modella.com</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        العراق
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 موديلة. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
